@@ -2,7 +2,25 @@
 
 Modern interactive portfolio website built using HTML, CSS, and JavaScript with smooth animations, dark mode, responsive design, dynamic API integration, and modern UI experience.
 
-![Portfolio Preview](https://images.unsplash.com/photo-1498050108023-c5249f4df085)
+---
+
+# 🖥️ Preview
+
+## 💻 Desktop Preview
+
+![Desktop Preview](./assets/mockup/Macbook.png)
+
+---
+
+## 📱 Mobile Preview
+
+![Mobile Preview](./assets/mockup/Iphone.png)
+
+---
+
+## 📲 Tablet Preview
+
+![Tablet Preview](./assets/mockup/iPad.png)
 
 ---
 
@@ -73,7 +91,7 @@ Modern interactive portfolio website built using HTML, CSS, and JavaScript with 
 - Smooth Reveal on Scroll
 - Loader Animation
 
-Because static websites are emotionally exhausting to look at.
+Because static websites feel emotionally abandoned.
 
 ---
 
@@ -82,7 +100,7 @@ Because static websites are emotionally exhausting to look at.
 This website is fully optimized for:
 
 - Desktop 💻
-- Tablet 📱
+- Tablet 📲
 - Mobile 📱
 
 Including:
@@ -91,7 +109,7 @@ Including:
 - adaptive typography,
 - optimized spacing.
 
-Human thumbs are chaotic. Responsive design exists because of that.
+Humans insist on opening websites from every screen size imaginable. So responsive design became mandatory civilization infrastructure.
 
 ---
 
@@ -130,8 +148,13 @@ project/
 │   ├── css/
 │   │   └── styles.css
 │   │
-│   └── js/
-│       └── profile.js
+│   ├── js/
+│   │   └── profile.js
+│   │
+│   └── mockup/
+│       ├── Macbook.png
+│       ├── Iphone.png
+│       └── iPad.png
 │
 └── README.md
 ```
@@ -160,7 +183,7 @@ DO NOT open using:
 file://
 ```
 
-Because browsers dislike local fetch requests with the passion of a thousand security engineers.
+Browsers treat local fetch requests like suspicious underground activity.
 
 ---
 
@@ -174,7 +197,7 @@ http://127.0.0.1:5500
 
 ---
 
-# 📸 Preview Sections
+# 📸 Sections Included
 
 - Hero Section
 - About Me
@@ -206,7 +229,7 @@ During development:
 - UI/UX interactions were enhanced,
 - JavaScript DOM manipulation was explored deeply.
 
-And naturally, CSS attempted psychological warfare several times.
+And naturally, CSS attempted several acts of rebellion.
 
 ---
 
@@ -232,4 +255,4 @@ This project focuses on:
 - clean structure,
 - frontend creativity.
 
-Built with coffee, curiosity, and repeated negotiations with CSS layout behavior.
+Built with curiosity, persistence, and repeated negotiations with browser rendering behavior.

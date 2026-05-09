@@ -230,6 +230,137 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initTheme();
 
+  // ======================================
+  // MOBILE MENU
+  // ======================================
+
+  function initMobileMenu() {
+
+    const hamburger =
+      document.getElementById("hamburger");
+
+    const navLinks =
+      document.getElementById("nav-links");
+
+    const overlay =
+      document.getElementById("nav-overlay");
+
+    if (
+      !hamburger ||
+      !navLinks ||
+      !overlay
+    ) return;
+
+    // =========================
+    // OPEN / CLOSE MENU
+    // =========================
+
+    function toggleMenu() {
+
+      const isOpen =
+        navLinks.classList.contains("show");
+
+      if (isOpen) {
+
+        closeMenu();
+
+      } else {
+
+        navLinks.classList.add("show");
+
+        overlay.classList.add("show");
+
+        hamburger.textContent = "✕";
+
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    // =========================
+    // CLOSE MENU
+    // =========================
+
+    function closeMenu() {
+
+      navLinks.classList.remove("show");
+
+      overlay.classList.remove("show");
+
+      hamburger.textContent = "☰";
+
+      document.body.style.overflow = "";
+    }
+
+    // =========================
+    // HAMBURGER CLICK
+    // =========================
+
+    hamburger.addEventListener(
+      "click",
+      toggleMenu
+    );
+
+    // =========================
+    // OVERLAY CLICK
+    // =========================
+
+    overlay.addEventListener(
+      "click",
+      closeMenu
+    );
+
+    // =========================
+    // LINK CLICK
+    // =========================
+
+    const links =
+      navLinks.querySelectorAll("a");
+
+    links.forEach((link) => {
+
+      link.addEventListener(
+        "click",
+        closeMenu
+      );
+
+    });
+
+    // =========================
+    // ESC KEY CLOSE
+    // =========================
+
+    document.addEventListener(
+      "keydown",
+      (e) => {
+
+        if (
+          e.key === "Escape" &&
+          navLinks.classList.contains("show")
+        ) {
+
+          closeMenu();
+        }
+      }
+    );
+
+    // =========================
+    // AUTO RESET DESKTOP
+    // =========================
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        if (window.innerWidth > 768) {
+
+          closeMenu();
+        }
+      }
+    );
+
+  }
+
+  initMobileMenu();
 
   // ======================================
   // TAB SYSTEM
