@@ -1,517 +1,736 @@
-// ===============================
+// ======================================
 // PORTFOLIO SCRIPT
-// ===============================
+// ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===============================
-  // GREETING
-  // ===============================
-  const greetingEl = document.getElementById("greeting");
+  // ======================================
+  // ELEMENT SELECTORS
+  // ======================================
 
-  if (greetingEl) {
+  const root = document.documentElement;
+
+  const greetingEl =
+    document.getElementById("greeting");
+
+  const typingEl =
+    document.getElementById("typing-text");
+
+  const ageDisplay =
+    document.getElementById("age-display");
+
+  const themeBtn =
+    document.getElementById("theme-btn");
+
+  const clock =
+    document.getElementById("clock");
+
+  const loader =
+    document.getElementById("loader");
+
+  const year =
+    document.getElementById("year");
+
+  // ======================================
+  // GREETING
+  // ======================================
+
+  function updateGreeting() {
+
+    if (!greetingEl) return;
+
     const hour = new Date().getHours();
 
-    const greetingText =
-      hour >= 5 && hour <= 11
-        ? "// Good Morning ☀️"
-        : hour >= 12 && hour <= 16
-        ? "// Good Afternoon 🌤"
-        : hour >= 17 && hour <= 20
-        ? "// Good Evening 🌆"
-        : "// Good Night 🌙";
+    let greetingText =
+      "// Good Night 🌙";
 
-    greetingEl.textContent = greetingText;
+    if (hour >= 5 && hour <= 11) {
+      greetingText =
+        "// Good Morning ☀️";
+    }
+
+    else if (hour >= 12 && hour <= 16) {
+      greetingText =
+        "// Good Afternoon 🌤";
+    }
+
+    else if (hour >= 17 && hour <= 20) {
+      greetingText =
+        "// Good Evening 🌆";
+    }
+
+    greetingEl.textContent =
+      greetingText;
   }
 
+  updateGreeting();
 
-  // ===============================
+
+  // ======================================
   // TYPING EFFECT
-  // ===============================
-  const typingEl = document.getElementById("typing-text");
+  // ======================================
 
-  if (typingEl) {
+  function initTypingEffect() {
+
+    if (!typingEl) return;
 
     const roles = [
       "Web Developer",
+      "Frontend Enthusiast",
       "UI Designer",
       "Problem Solver",
-      "Frontend Enthusiast"
+      "Laravel Developer"
     ];
 
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
 
-    function typeEffect() {
+    function type() {
 
-      const currentRole = roles[roleIndex];
+      const current =
+        roles[roleIndex];
 
-      charIndex += isDeleting ? -1 : 1;
+      charIndex +=
+        isDeleting ? -1 : 1;
 
       typingEl.innerHTML =
-        currentRole.slice(0, charIndex) +
+        current.slice(0, charIndex) +
         `<span class="cursor"></span>`;
 
-      if (!isDeleting && charIndex === currentRole.length) {
+      if (
+        !isDeleting &&
+        charIndex === current.length
+      ) {
 
         setTimeout(() => {
           isDeleting = true;
         }, 1500);
 
-      } else if (isDeleting && charIndex === 0) {
-
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-
       }
 
-      setTimeout(typeEffect, isDeleting ? 50 : 100);
+      else if (
+        isDeleting &&
+        charIndex === 0
+      ) {
+
+        isDeleting = false;
+
+        roleIndex =
+          (roleIndex + 1) % roles.length;
+      }
+
+      setTimeout(
+        type,
+        isDeleting ? 50 : 100
+      );
     }
 
-    typeEffect();
+    type();
   }
 
+  initTypingEffect();
 
-  // ===============================
+
+  // ======================================
   // AGE CALCULATION
-  // ===============================
-  const ageDisplay = document.getElementById("age-display");
+  // ======================================
 
-  if (ageDisplay) {
+  function updateAge() {
 
-    const birthDate = new Date("2005-08-17");
-    const today = new Date();
+    if (!ageDisplay) return;
+
+    const birthDate =
+      new Date("2005-08-17");
+
+    const today =
+      new Date();
 
     let age =
-      today.getFullYear() - birthDate.getFullYear();
+      today.getFullYear() -
+      birthDate.getFullYear();
 
-    const month =
-      today.getMonth() - birthDate.getMonth();
+    const monthDiff =
+      today.getMonth() -
+      birthDate.getMonth();
 
     if (
-      month < 0 ||
-      (month === 0 &&
-        today.getDate() < birthDate.getDate())
+      monthDiff < 0 ||
+      (
+        monthDiff === 0 &&
+        today.getDate() <
+        birthDate.getDate()
+      )
     ) {
       age--;
     }
 
-    ageDisplay.textContent = age;
+    ageDisplay.textContent =
+      age;
   }
 
+  updateAge();
 
-  // ===============================
+
+  // ======================================
   // DARK MODE
-  // ===============================
-  const themeBtn = document.getElementById("theme-btn");
-  const root = document.documentElement;
+  // ======================================
 
-  if (themeBtn) {
+  function initTheme() {
 
-    const savedTheme = localStorage.getItem("theme");
+    if (!themeBtn) return;
+
+    const savedTheme =
+      localStorage.getItem("theme");
 
     if (savedTheme) {
-      root.setAttribute("data-theme", savedTheme);
+
+      root.setAttribute(
+        "data-theme",
+        savedTheme
+      );
 
       themeBtn.textContent =
-        savedTheme === "dark" ? "☀️" : "🌙";
+        savedTheme === "dark"
+          ? "☀️"
+          : "🌙";
     }
 
-    themeBtn.addEventListener("click", () => {
+    themeBtn.addEventListener(
+      "click",
+      () => {
 
-      const currentTheme =
-        root.getAttribute("data-theme");
+        const currentTheme =
+          root.getAttribute(
+            "data-theme"
+          );
 
-      const newTheme =
-        currentTheme === "light"
-          ? "dark"
-          : "light";
+        const newTheme =
+          currentTheme === "light"
+            ? "dark"
+            : "light";
 
-      root.setAttribute("data-theme", newTheme);
+        root.setAttribute(
+          "data-theme",
+          newTheme
+        );
 
-      localStorage.setItem("theme", newTheme);
+        localStorage.setItem(
+          "theme",
+          newTheme
+        );
 
-      themeBtn.textContent =
-        newTheme === "dark" ? "☀️" : "🌙";
+        themeBtn.textContent =
+          newTheme === "dark"
+            ? "☀️"
+            : "🌙";
+      }
+    );
+  }
+
+  initTheme();
+
+
+  // ======================================
+  // TAB SYSTEM
+  // ======================================
+
+  function initTabs() {
+
+    const tabBtns =
+      document.querySelectorAll(".tab-btn");
+
+    const tabPanels =
+      document.querySelectorAll(".tab-panel");
+
+    tabBtns.forEach((btn) => {
+
+      btn.addEventListener(
+        "click",
+        () => {
+
+          tabBtns.forEach((b) =>
+            b.classList.remove("active")
+          );
+
+          tabPanels.forEach((panel) =>
+            panel.classList.remove("active")
+          );
+
+          btn.classList.add("active");
+
+          const target =
+            document.getElementById(
+              `tab-${btn.dataset.tab}`
+            );
+
+          if (target) {
+            target.classList.add("active");
+          }
+        }
+      );
+
     });
   }
 
-
-  // ===============================
-  // TAB SYSTEM
-  // ===============================
-  const tabBtns =
-    document.querySelectorAll(".tab-btn");
-
-  const tabPanels =
-    document.querySelectorAll(".tab-panel");
-
-  tabBtns.forEach((btn) => {
-
-    btn.addEventListener("click", () => {
-
-      tabBtns.forEach((b) =>
-        b.classList.remove("active")
-      );
-
-      tabPanels.forEach((panel) =>
-        panel.classList.remove("active")
-      );
-
-      btn.classList.add("active");
-
-      const target = btn.dataset.tab;
-
-      const activePanel =
-        document.getElementById(`tab-${target}`);
-
-      if (activePanel) {
-        activePanel.classList.add("active");
-      }
-
-    });
-
-  });
+  initTabs();
 
 
-  // ===============================
+  // ======================================
   // SKILL ANIMATION
-  // ===============================
-  const skills =
-    document.querySelectorAll(".skill-item");
+  // ======================================
 
-  const skillObserver =
-    new IntersectionObserver((entries) => {
+  function initSkillAnimation() {
 
-      entries.forEach((entry, index) => {
+    const skills =
+      document.querySelectorAll(".skill-item");
 
-        if (entry.isIntersecting) {
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
 
-          const skill = entry.target;
+          entries.forEach((entry, index) => {
 
-          const level =
-            skill.getAttribute("data-level");
+            if (entry.isIntersecting) {
 
-          const bar =
-            skill.querySelector(".skill-fill");
+              const skill =
+                entry.target;
 
-          setTimeout(() => {
-            bar.style.width = `${level}%`;
-          }, index * 200);
+              const level =
+                skill.dataset.level;
 
-          skillObserver.unobserve(skill);
+              const fill =
+                skill.querySelector(".skill-fill");
+
+              setTimeout(() => {
+
+                fill.style.width =
+                  `${level}%`;
+
+              }, index * 150);
+
+              observer.unobserve(skill);
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.3
         }
-
-      });
-
-    }, {
-      threshold: 0.4
-    });
-
-  skills.forEach((skill) => {
-    skillObserver.observe(skill);
-  });
-
-
-  // ===============================
-  // PROJECT FILTER
-  // ===============================
-  const filterBtns =
-    document.querySelectorAll(".filter-btn");
-
-  const projectCards =
-    document.querySelectorAll(".project-card");
-
-  filterBtns.forEach((btn) => {
-
-    btn.addEventListener("click", () => {
-
-      const filter =
-        btn.dataset.filter;
-
-      filterBtns.forEach((b) =>
-        b.classList.remove("active")
       );
 
-      btn.classList.add("active");
+    skills.forEach((skill) => {
+      observer.observe(skill);
+    });
+  }
 
-      projectCards.forEach((card) => {
+  initSkillAnimation();
 
-        const category =
-          card.dataset.category;
+
+  // ======================================
+  // PROJECT FILTER
+  // ======================================
+
+  function initProjectFilter() {
+
+    const filterBtns =
+      document.querySelectorAll(".filter-btn");
+
+    const projectCards =
+      document.querySelectorAll(".project-card");
+
+    filterBtns.forEach((btn) => {
+
+      btn.addEventListener(
+        "click",
+        () => {
+
+          const filter =
+            btn.dataset.filter;
+
+          filterBtns.forEach((b) =>
+            b.classList.remove("active")
+          );
+
+          btn.classList.add("active");
+
+          projectCards.forEach((card) => {
+
+            const category =
+              card.dataset.category;
+
+            const show =
+              filter === "all" ||
+              filter === category;
+
+            card.style.display =
+              show ? "block" : "none";
+          });
+
+        }
+      );
+
+    });
+  }
+
+  initProjectFilter();
+
+
+  // ======================================
+  // CONTACT FORM
+  // ======================================
+
+  function initContactForm() {
+
+    const form =
+      document.getElementById("contact-form");
+
+    if (!form) return;
+
+    form.addEventListener(
+      "submit",
+      (e) => {
+
+        e.preventDefault();
+
+        const name =
+          document.getElementById("name");
+
+        const email =
+          document.getElementById("email");
+
+        const message =
+          document.getElementById("message");
+
+        const errName =
+          document.getElementById("err-name");
+
+        const errEmail =
+          document.getElementById("err-email");
+
+        const errMessage =
+          document.getElementById("err-message");
+
+        const success =
+          document.getElementById("form-success");
+
+        errName.textContent = "";
+        errEmail.textContent = "";
+        errMessage.textContent = "";
+
+        let valid = true;
 
         if (
-          filter === "all" ||
-          filter === category
+          name.value.trim().length < 2
         ) {
-
-          card.style.display = "block";
-
-          setTimeout(() => {
-            card.style.opacity = "1";
-          }, 10);
-
-        } else {
-
-          card.style.opacity = "0";
-
-          setTimeout(() => {
-            card.style.display = "none";
-          }, 300);
-
+          errName.textContent =
+            "Minimum 2 characters";
+          valid = false;
         }
 
-      });
+        if (
+          !email.value.includes("@")
+        ) {
+          errEmail.textContent =
+            "Invalid email";
+          valid = false;
+        }
 
-    });
+        if (
+          message.value.trim().length < 10
+        ) {
+          errMessage.textContent =
+            "Minimum 10 characters";
+          valid = false;
+        }
 
-  });
+        if (valid) {
 
+          success.style.display =
+            "block";
 
-  // ===============================
-  // CONTACT FORM VALIDATION
-  // ===============================
-  const form =
-    document.getElementById("contact-form");
+          setTimeout(() => {
 
-  if (form) {
+            success.style.display =
+              "none";
 
-    form.addEventListener("submit", (e) => {
+          }, 3000);
 
-      e.preventDefault();
+          form.reset();
+        }
 
-      const name =
-        document.getElementById("name");
-
-      const email =
-        document.getElementById("email");
-
-      const message =
-        document.getElementById("message");
-
-      const errName =
-        document.getElementById("err-name");
-
-      const errEmail =
-        document.getElementById("err-email");
-
-      const errMessage =
-        document.getElementById("err-message");
-
-      const success =
-        document.getElementById("form-success");
-
-      let valid = true;
-
-      // RESET ERROR
-      errName.textContent = "";
-      errEmail.textContent = "";
-      errMessage.textContent = "";
-
-      // VALIDATION
-      if (name.value.trim().length < 2) {
-        errName.textContent =
-          "Name must be at least 2 characters";
-        valid = false;
       }
-
-      if (
-        !email.value.includes("@") ||
-        !email.value.includes(".")
-      ) {
-        errEmail.textContent =
-          "Please enter a valid email";
-        valid = false;
-      }
-
-      if (message.value.trim().length < 10) {
-        errMessage.textContent =
-          "Message must be at least 10 characters";
-        valid = false;
-      }
-
-      // SUCCESS
-      if (valid) {
-
-        const subject =
-          "Message From Portfolio Website";
-
-        const body =
-          `Name: ${name.value}%0D%0A` +
-          `Email: ${email.value}%0D%0A` +
-          `Message: ${message.value}`;
-
-        window.location.href =
-          `mailto:muchlisinmaruf@gmail.com?subject=${subject}&body=${body}`;
-
-        success.style.display = "block";
-
-        setTimeout(() => {
-          success.style.display = "none";
-        }, 3000);
-
-        form.reset();
-      }
-
-    });
-
+    );
   }
 
+  initContactForm();
 
-  // ===============================
-// FETCH RANDOM QUOTE
-// ===============================
 
-const quoteText =
-  document.getElementById("quote-text");
+  // ======================================
+  // RANDOM QUOTE API
+  // ======================================
 
-const quoteAuthor =
-  document.getElementById("quote-author");
+  function initQuotes() {
 
-const newQuoteBtn =
-  document.getElementById("new-quote-btn");
+    const quoteText =
+      document.getElementById("quote-text");
 
-async function getQuote() {
+    const quoteAuthor =
+      document.getElementById("quote-author");
 
-  if (!quoteText || !quoteAuthor) return;
+    const quoteBtn =
+      document.getElementById("new-quote-btn");
 
-  try {
+    async function getQuote() {
 
-    quoteText.innerText =
-      "Loading quote...";
+      if (!quoteText || !quoteAuthor) return;
 
-    quoteAuthor.innerText = "";
+      try {
 
-    const response = await fetch(
-      "https://dummyjson.com/quotes/random"
-    );
+        quoteText.textContent =
+          "Loading quote...";
 
-    if (!response.ok) {
-      throw new Error("Failed fetch");
+        quoteAuthor.textContent = "";
+
+        const response =
+          await fetch(
+            "https://dummyjson.com/quotes/random"
+          );
+
+        if (!response.ok) {
+          throw new Error(
+            "Failed fetch"
+          );
+        }
+
+        const data =
+          await response.json();
+
+        quoteText.textContent =
+          `"${data.quote}"`;
+
+        quoteAuthor.textContent =
+          `- ${data.author}`;
+
+      }
+
+      catch (error) {
+
+        quoteText.textContent =
+          "Failed to load quote.";
+
+        console.error(error);
+      }
     }
 
-    const data = await response.json();
+    if (quoteBtn) {
 
-    quoteText.innerText =
-      `"${data.quote}"`;
+      quoteBtn.addEventListener(
+        "click",
+        getQuote
+      );
+    }
 
-    quoteAuthor.innerText =
-      `- ${data.author}`;
-
-  } catch (error) {
-
-    quoteText.innerText =
-      "Failed to load quote.";
-
-    quoteAuthor.innerText = "";
-
-    console.error(error);
+    getQuote();
   }
-}
 
-if (newQuoteBtn) {
-  newQuoteBtn.addEventListener(
-    "click",
-    getQuote
-  );
-}
-
-getQuote();
+  initQuotes();
 
 
-  // ===============================
+  // ======================================
   // LIVE CLOCK
-  // ===============================
-  const clock =
-    document.getElementById("clock");
+  // ======================================
 
-  function updateClock() {
+  function initClock() {
 
     if (!clock) return;
 
-    const now = new Date();
+    function updateClock() {
 
-    const time =
-      now.toLocaleTimeString("id-ID");
+      const now =
+        new Date();
 
-    clock.textContent = time;
+      clock.textContent =
+        now.toLocaleTimeString("id-ID");
+    }
+
+    updateClock();
+
+    setInterval(updateClock, 1000);
   }
 
-  updateClock();
-
-  setInterval(updateClock, 1000);
+  initClock();
 
 
-  // ===============================
+  // ======================================
   // ACTIVE NAVIGATION
-  // ===============================
-  const sections =
-    document.querySelectorAll("section");
+  // ======================================
 
-  const navLinks =
-    document.querySelectorAll("nav a");
+  function initActiveNav() {
 
-  window.addEventListener("scroll", () => {
+    const sections =
+      document.querySelectorAll("section");
 
-    let current = "";
+    const navLinks =
+      document.querySelectorAll("nav a");
 
-    sections.forEach((section) => {
+    window.addEventListener(
+      "scroll",
+      () => {
 
-      const sectionTop =
-        section.offsetTop;
+        let current = "";
 
-      if (
-        pageYOffset >= sectionTop - 200
-      ) {
-        current =
-          section.getAttribute("id");
+        sections.forEach((section) => {
+
+          const sectionTop =
+            section.offsetTop;
+
+          if (
+            scrollY >= sectionTop - 200
+          ) {
+            current =
+              section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+
+          link.classList.remove("active");
+
+          if (
+            link
+              .getAttribute("href")
+              .includes(current)
+          ) {
+            link.classList.add("active");
+          }
+        });
+
       }
+    );
+  }
+
+  initActiveNav();
+
+
+  // ======================================
+  // SCROLL REVEAL
+  // ======================================
+
+  function initRevealAnimation() {
+
+    const reveals =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "active"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+    reveals.forEach((el) => {
+      observer.observe(el);
+    });
+  }
+
+  initRevealAnimation();
+
+
+  // ======================================
+  // COUNTER ANIMATION
+  // ======================================
+
+  function initCounters() {
+
+    const counters =
+      document.querySelectorAll(
+        ".stat-box h2"
+      );
+
+    counters.forEach((counter) => {
+
+      const target =
+        Number(
+          counter.innerText.replace("+", "")
+        );
+
+      let current = 0;
+
+      const increment =
+        target / 100;
+
+      const interval =
+        setInterval(() => {
+
+          current += increment;
+
+          if (current >= target) {
+
+            counter.innerText =
+              `${target}+`;
+
+            clearInterval(interval);
+          }
+
+          else {
+
+            counter.innerText =
+              Math.floor(current);
+          }
+
+        }, 20);
 
     });
+  }
 
-    navLinks.forEach((link) => {
-
-      link.classList.remove("active");
-
-      if (
-        link.getAttribute("href")
-        .includes(current)
-      ) {
-        link.classList.add("active");
-      }
-
-    });
-
-  });
+  initCounters();
 
 
-  // ===============================
+  // ======================================
   // LOADER
-  // ===============================
-  window.addEventListener("load", () => {
+  // ======================================
 
-    const loader =
-      document.getElementById("loader");
+  window.addEventListener(
+    "load",
+    () => {
 
-    if (loader) {
+      if (!loader) return;
 
       loader.style.opacity = "0";
 
       setTimeout(() => {
+
         loader.style.display = "none";
+
       }, 500);
 
     }
+  );
 
-  });
 
-
-  // ===============================
+  // ======================================
   // FOOTER YEAR
-  // ===============================
-  const year =
-    document.getElementById("year");
+  // ======================================
 
   if (year) {
     year.textContent =

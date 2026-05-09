@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +10,7 @@
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet" />
 
   <!-- Main CSS -->
   <link href="assets/css/styles.css" rel="stylesheet" />
@@ -18,38 +18,48 @@
 
 <body>
 
-  <!-- ========================= -->
-  <!-- Loader -->
-  <!-- ========================= -->
+  <!-- ===================================== -->
+  <!-- LOADER -->
+  <!-- ===================================== -->
   <div id="loader">
     <div class="spinner"></div>
   </div>
 
-  <!-- ========================= -->
-  <!-- Navbar -->
-  <!-- ========================= -->
+  <!-- ===================================== -->
+  <!-- NAVBAR -->
+  <!-- ===================================== -->
   <nav>
+
     <div class="nav-logo">
       &lt;MyProfile /&gt;
     </div>
 
     <div class="nav-links">
+
       <a href="#about">About</a>
+
       <a href="#skills">Skills</a>
+
       <a href="#projects">Projects</a>
+
+      <a href="#gallery">Gallery</a>
+
       <a href="#quotes">Quotes</a>
+
       <a href="#contact">Contact</a>
 
       <button id="theme-btn" aria-label="Toggle Theme">
         🌙
       </button>
+
     </div>
+
   </nav>
 
-  <!-- ========================= -->
-  <!-- Hero Section -->
-  <!-- ========================= -->
-  <section class="hero" id="home">
+  <!-- ===================================== -->
+  <!-- HERO -->
+  <!-- ===================================== -->
+  <section class="hero reveal reveal-bottom" id="home">
 
     <div class="live-clock">
       <h3 id="clock"></h3>
@@ -60,7 +70,8 @@
     </p>
 
     <h1 class="hero-name">
-      I'm <span>Ma'ruf Muchlisin</span>
+      I'm
+      <span>Ma'ruf Muchlisin</span>
     </h1>
 
     <p class="hero-role" id="typing-text">
@@ -68,12 +79,13 @@
     </p>
 
     <p class="hero-bio">
-      Informatics Engineering student who is passionate about
-      web development, system design, and building interactive
-      digital experiences with modern technologies.
+      Informatics Engineering student who is passionate
+      about web development, system design, and building
+      interactive digital experiences using modern technologies.
     </p>
 
     <div class="hero-actions">
+
       <a href="#projects" class="btn btn-primary">
         View My Work
       </a>
@@ -81,6 +93,7 @@
       <a href="#contact" class="btn btn-outline">
         Get In Touch
       </a>
+
     </div>
 
     <div class="age-badge">
@@ -91,10 +104,10 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- About Section -->
-  <!-- ========================= -->
-  <section id="about">
+  <!-- ===================================== -->
+  <!-- ABOUT -->
+  <!-- ===================================== -->
+  <section id="about" class="reveal reveal-left">
 
     <p class="section-label">
       // 01. about me
@@ -125,15 +138,15 @@
     <div class="tab-panel active" id="tab-story">
 
       <p>
-        I am an Informatics student with a strong interest in
-        web development, especially in building interactive
-        and scalable applications using modern technologies.
+        I am an Informatics student with a strong
+        interest in web development, especially in
+        building interactive and scalable applications.
       </p>
 
       <p>
-        I enjoy solving problems, learning system architecture,
-        and turning ideas into real applications that are both
-        functional and user-friendly.
+        I enjoy solving problems, learning system
+        architecture, and turning ideas into real
+        applications that are functional and user-friendly.
       </p>
 
     </div>
@@ -145,8 +158,10 @@
 
         <div class="info-item">
           <label>University</label>
+
           <span>
-            Nahdlatul Ulama Al Ghazali University, Cilacap
+            Nahdlatul Ulama Al Ghazali University,
+            Cilacap
           </span>
         </div>
 
@@ -157,12 +172,18 @@
 
         <div class="info-item">
           <label>Focus</label>
-          <span>Web Development & System Design</span>
+
+          <span>
+            Web Development & System Design
+          </span>
         </div>
 
         <div class="info-item">
           <label>Status</label>
-          <span>Undergraduate Student</span>
+
+          <span>
+            Undergraduate Student
+          </span>
         </div>
 
       </div>
@@ -174,7 +195,8 @@
 
       <p>
         Outside of coding, I enjoy exploring technology,
-        building small projects, and learning about digital systems.
+        building small projects, and learning about
+        digital systems.
       </p>
 
       <p>
@@ -186,10 +208,10 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- Skills Section -->
-  <!-- ========================= -->
-  <section id="skills">
+  <!-- ===================================== -->
+  <!-- SKILLS -->
+  <!-- ===================================== -->
+  <section id="skills" class="reveal reveal-right">
 
     <p class="section-label">
       // 02. skills
@@ -202,6 +224,7 @@
     <div class="skills-grid" id="skills-grid">
 
       <div class="skill-item" data-level="90">
+
         <div class="skill-header">
           <span class="skill-name">HTML5</span>
           <span class="skill-pct">90%</span>
@@ -210,9 +233,11 @@
         <div class="skill-bar">
           <div class="skill-fill"></div>
         </div>
+
       </div>
 
       <div class="skill-item" data-level="75">
+
         <div class="skill-header">
           <span class="skill-name">CSS3</span>
           <span class="skill-pct">75%</span>
@@ -221,9 +246,11 @@
         <div class="skill-bar">
           <div class="skill-fill secondary"></div>
         </div>
+
       </div>
 
       <div class="skill-item" data-level="55">
+
         <div class="skill-header">
           <span class="skill-name">JavaScript</span>
           <span class="skill-pct">55%</span>
@@ -232,9 +259,11 @@
         <div class="skill-bar">
           <div class="skill-fill"></div>
         </div>
+
       </div>
 
       <div class="skill-item" data-level="40">
+
         <div class="skill-header">
           <span class="skill-name">Git & GitHub</span>
           <span class="skill-pct">40%</span>
@@ -243,16 +272,17 @@
         <div class="skill-bar">
           <div class="skill-fill secondary"></div>
         </div>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- ========================= -->
-  <!-- Stats Section -->
-  <!-- ========================= -->
-  <section class="stats-section">
+  <!-- ===================================== -->
+  <!-- STATS -->
+  <!-- ===================================== -->
+  <section class="stats-section reveal reveal-bottom">
 
     <div class="stats-container">
 
@@ -275,10 +305,10 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- Projects Section -->
-  <!-- ========================= -->
-  <section id="projects">
+  <!-- ===================================== -->
+  <!-- PROJECTS -->
+  <!-- ===================================== -->
+  <section id="projects" class="reveal reveal-left">
 
     <p class="section-label">
       // 03. projects
@@ -288,7 +318,7 @@
       My Work
     </h2>
 
-    <!-- Filter -->
+    <!-- Filters -->
     <div class="project-filters">
 
       <button class="filter-btn active" data-filter="all">
@@ -313,18 +343,25 @@
     <div class="projects-grid">
 
       <div class="project-card" data-category="html">
-        <span class="project-tag">HTML/CSS</span>
+
+        <span class="project-tag">
+          HTML/CSS
+        </span>
 
         <h3>Personal Profile Page</h3>
 
         <p>
-          A responsive personal profile website built using
-          HTML and CSS.
+          Responsive personal profile website built
+          using HTML and CSS.
         </p>
+
       </div>
 
       <div class="project-card" data-category="js">
-        <span class="project-tag">JavaScript</span>
+
+        <span class="project-tag">
+          JavaScript
+        </span>
 
         <h3>To-Do List App</h3>
 
@@ -332,10 +369,14 @@
           Simple task manager with add, complete,
           and delete functionality.
         </p>
+
       </div>
 
       <div class="project-card" data-category="design">
-        <span class="project-tag">Design</span>
+
+        <span class="project-tag">
+          Design
+        </span>
 
         <h3>App UI Mockup</h3>
 
@@ -343,32 +384,80 @@
           Mobile-first food delivery application design
           created in Figma.
         </p>
+
       </div>
 
       <div class="project-card" data-category="html">
-        <span class="project-tag">HTML/CSS</span>
+
+        <span class="project-tag">
+          HTML/CSS
+        </span>
 
         <h3>Restaurant Landing Page</h3>
 
         <p>
-          Responsive landing page for a local restaurant
+          Responsive landing page for local restaurant
           with menu and contact section.
         </p>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- ========================= -->
-  <!-- Quotes Section -->
-  <!-- ========================= -->
-  <section class="quotes-section" id="quotes">
+  <!-- ===================================== -->
+  <!-- GALLERY -->
+  <!-- ===================================== -->
+  <section id="gallery" class="reveal reveal-right">
+
+    <p class="section-label">
+      // 04. gallery
+    </p>
+
+    <h2 class="section-title">
+      Creative Gallery
+    </h2>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Coding Setup" />
+      </div>
+
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4" alt="Developer Workspace" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935" alt="Programming" />
+      </div>
+
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Technology" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Startup Team" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Laptop Workspace" />
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================== -->
+  <!-- QUOTES -->
+  <!-- ===================================== -->
+  <section class="quotes-section reveal reveal-bottom" id="quotes">
 
     <div class="container">
 
       <p class="section-label">
-        // 04. inspiration
+        // 05. inspiration
       </p>
 
       <h2 class="section-title">
@@ -393,13 +482,13 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- Contact Section -->
-  <!-- ========================= -->
-  <section id="contact">
+  <!-- ===================================== -->
+  <!-- CONTACT -->
+  <!-- ===================================== -->
+  <section id="contact" class="reveal reveal-left">
 
     <p class="section-label">
-      // 05. contact
+      // 06. contact
     </p>
 
     <h2 class="section-title">
@@ -419,7 +508,9 @@
 
         <div class="contact-detail">
           <span>📧</span>
-          <span>muchlisinmaruf@gmail.com</span>
+          <span>
+            muchlisinmaruf@gmail.com
+          </span>
         </div>
 
         <div class="contact-detail">
@@ -435,45 +526,42 @@
       </div>
 
       <!-- Contact Form -->
-      <form
-        class="contact-form"
-        id="contact-form"
-        novalidate
-      >
+      <form class="contact-form" id="contact-form" novalidate>
 
         <div class="form-group">
-          <label for="name">Your Name</label>
 
-          <input
-            type="text"
-            id="name"
-            placeholder="Full name"
-          />
+          <label for="name">
+            Your Name
+          </label>
+
+          <input type="text" id="name" placeholder="Full name" />
 
           <span class="field-error" id="err-name"></span>
+
         </div>
 
         <div class="form-group">
-          <label for="email">Email Address</label>
 
-          <input
-            type="email"
-            id="email"
-            placeholder="email@example.com"
-          />
+          <label for="email">
+            Email Address
+          </label>
+
+          <input type="email" id="email" placeholder="email@example.com" />
 
           <span class="field-error" id="err-email"></span>
+
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
 
-          <textarea
-            id="message"
-            placeholder="Write your message here..."
-          ></textarea>
+          <label for="message">
+            Message
+          </label>
+
+          <textarea id="message" placeholder="Write your message here..."></textarea>
 
           <span class="field-error" id="err-message"></span>
+
         </div>
 
         <button type="submit" class="btn btn-primary">
@@ -490,24 +578,26 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- Footer -->
-  <!-- ========================= -->
+  <!-- ===================================== -->
+  <!-- FOOTER -->
+  <!-- ===================================== -->
   <footer>
 
     <p>
       Built with HTML, CSS & JavaScript
       &nbsp;·&nbsp;
-      &copy; <span id="year"></span>
+      &copy;
+      <span id="year"></span>
       Ma'ruf Muchlisin
     </p>
 
   </footer>
 
-  <!-- ========================= -->
-  <!-- Main JavaScript -->
-  <!-- ========================= -->
+  <!-- ===================================== -->
+  <!-- MAIN JS -->
+  <!-- ===================================== -->
   <script src="assets/js/profile.js"></script>
 
 </body>
+
 </html>
