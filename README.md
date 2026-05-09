@@ -6,21 +6,7 @@ Modern interactive portfolio website built using HTML, CSS, and JavaScript with 
 
 # 🖥️ Preview
 
-## 💻 Desktop Preview
-
-![Desktop Preview](./assets/mockup/Macbook.png)
-
----
-
-## 📱 Mobile Preview
-
-![Mobile Preview](./assets/mockup/Iphone.png)
-
----
-
-## 📲 Tablet Preview
-
-![Tablet Preview](./assets/mockup/iPad.png)
+![Desktop Preview](./assets/mockup/fullmoc.png)
 
 ---
 
